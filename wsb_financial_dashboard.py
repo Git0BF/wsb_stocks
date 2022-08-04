@@ -110,12 +110,10 @@ dict(step='all')
 )
 st.plotly_chart(fig)
 
-data2 = ticker.history(period="max")
-
-dffin=data2.financials
+fin = yf.Ticker(ticker)
+dffin=fin.calendar
 st.dataframe(dffin)
 
-dfhold=data2.institutional_holders
-st.dataframe(dfhold)
+
 
 st.stop()
