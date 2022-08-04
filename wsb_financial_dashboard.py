@@ -1,5 +1,4 @@
 import streamlit as st
-import yfinance
 import praw
 import matplotlib.pyplot as plt
 from wordcloud import WordCloud
@@ -9,7 +8,7 @@ import plotly.express as px
 import plotly.graph_objs as go
 
 
-reddit = praw.Reddit()
+reddit = praw.Reddit(client_id=st.secrets["client_id"], client_secret=st.secrets["client_secret"], user_agent="sentiment")
 
 #List of text
 wordsc=[]
