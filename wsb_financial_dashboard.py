@@ -90,6 +90,7 @@ figt = px.bar(df, x = "Ticker", y = "Count", title="Ticker frequency")
 st.plotly_chart(figt)
 
 #selectbox
+st.subheader("Select a ticker :") 
 ticker=st.selectbox('Pick a trending stock', res)
 ticker= str(ticker)
 
@@ -111,11 +112,11 @@ dict(step='all')
 st.plotly_chart(fig)
 
 #Display revenue and earnings
-
+st.subheader('Earnings & Revenue")
 fin = yf.Ticker(ticker)
 df1 = pd.DataFrame(fin.quarterly_earnings)
 
-fige = px.bar(df1, x=df1.index, y=df1.columns)
+fige = px.bar(df1, x=df1.index, y=df1.columns, barmode='group')
 
 st.plotly_chart(fige)
 
