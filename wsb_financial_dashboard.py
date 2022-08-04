@@ -112,7 +112,7 @@ st.plotly_chart(fig)
 
 #Display revenue and earnings
 
-fin = yf.Ticker("snap")
+fin = yf.Ticker(ticker)
 df1 = pd.DataFrame(fin.quarterly_earnings)
 
 fige = px.bar(df1, x=df1.index, y=df1.columns)
