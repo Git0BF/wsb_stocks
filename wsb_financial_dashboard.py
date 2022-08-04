@@ -48,6 +48,7 @@ while("" in cloud1) :
     cloud1.remove("")
     
 #Build the word cloud.
+st.set_option('deprecation.showPyplotGlobalUse', False)
 wordcloud = WordCloud(width = 1000, height = 500).generate(" ".join(cloud1))
 fig=plt.figure(figsize=(15,8))
 fig=plt.imshow(wordcloud)
