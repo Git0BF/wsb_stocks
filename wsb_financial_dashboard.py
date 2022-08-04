@@ -110,10 +110,7 @@ dict(step='all')
 )
 st.plotly_chart(fig)
 
-fin = yf.Ticker(ticker)
-dffin=fin.calendar
-st.dataframe(dffin)
-
-
+fin = yf.Ticker("snap")
+df1 = pd.DataFrame(fin.calendar)
 
 st.stop()
