@@ -112,7 +112,8 @@ dict(step='all')
 st.plotly_chart(fig)
 
 #Display revenue and earnings
-st.subheader('Earnings & Revenue")
+
+st.write("Earnings & Revenue")
 fin = yf.Ticker(ticker)
 df1 = pd.DataFrame(fin.quarterly_earnings)
 
