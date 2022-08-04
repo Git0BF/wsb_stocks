@@ -112,5 +112,6 @@ st.plotly_chart(fig)
 
 fin = yf.Ticker("snap")
 df1 = pd.DataFrame(fin.calendar)
+st.dataframe(df1)
 
 st.stop()
