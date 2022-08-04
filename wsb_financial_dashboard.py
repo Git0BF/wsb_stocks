@@ -110,8 +110,19 @@ dict(step='all')
 )
 st.plotly_chart(fig)
 
+#Display revenue and earnings
+
+col1, col2 = st.columns(2)
+
 fin = yf.Ticker("snap")
-df1 = pd.DataFrame(fin.earnings)
-st.dataframe(df1)
+df1 = pd.DataFrame(fin.quarterly_earnings)
+
+fige = px.bar(df1, x=df1.index, y=df1.columns)
+
+with col1:
+    st.dataframe(df1)
+with col2:
+    st.plotly_chart(fige)
+
 
 st.stop()
