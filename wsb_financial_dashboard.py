@@ -83,9 +83,14 @@ res = []
 for i in stocks:
     if i not in res:
         res.append(i)
-        
+#trending securities      
+df = pd.DataFrame (stocks, columns = ['Ticker'])
+df=df.value_counts(['Ticker']).reset_index(name='Count')
+figt = px.bar(df, x = "Ticker", y = "Count", title="Ticker frequency")
+st.plotly_chart(figt)
+
 #selectbox
-ticker=st.selectbox('Pick a stock', res)
+ticker=st.selectbox('Pick a trending stock', res)
 ticker= str(ticker)
 
 data = yf.download(ticker, period='max',interval = '1d', rounding= True)
