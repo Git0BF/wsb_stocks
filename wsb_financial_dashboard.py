@@ -101,14 +101,8 @@ fig.add_trace(go.Candlestick())
 fig.add_trace(go.Candlestick(x=data.index,open = data['Open'], high=data['High'], low=data['Low'], close=data['Close'], name = 'market data'))
 fig.update_layout(title = 'Share price', yaxis_title = 'Stock Price (USD)')
                   
-fig.update_xaxes(
-rangeslider_visible=True,
-rangeselector=dict(
-buttons=list([
-dict(step='all')
-])
-)
-)
+fig.update_xaxes(rangeslider_visible=True,rangeselector=dict(buttons=list([dict(step='all')])))
+
 st.plotly_chart(fig)
 
 #Display revenue and earnings
