@@ -109,3 +109,5 @@ dict(step='all')
 )
 )
 st.plotly_chart(fig)
+
+st.stop()
