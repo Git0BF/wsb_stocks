@@ -57,7 +57,7 @@ fig=plt.show()
 st.pyplot(fig)
 plt.close()     
 
-#Extract the tickers discussed.
+#Remove prices ex: $16.
 stocksymbol = [x for x in stock_symbol if not any(x1.isdigit() for x1 in x)]
 
 #Select uppercase words.
@@ -109,5 +109,13 @@ dict(step='all')
 )
 )
 st.plotly_chart(fig)
+
+data2 = ticker.history(period="max")
+
+dffin=data2.financials
+st.dataframe(dffin)
+
+dfhold=data2.institutional_holders
+st.dataframe(dfhold)
 
 st.stop()
