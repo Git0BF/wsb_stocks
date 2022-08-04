@@ -7,7 +7,7 @@ import yfinance as yf
 import plotly.express as px
 import plotly.graph_objs as go
 
-
+st.title("Hot topics on r/wallstreetbets and trending securities")
 reddit = praw.Reddit(client_id=st.secrets["client_id"], client_secret=st.secrets["client_secret"], user_agent="sentiment")
 
 #List of text
@@ -55,4 +55,34 @@ fig=plt.imshow(wordcloud)
 fig=plt.axis("off")
 fig=plt.show()
 st.pyplot(fig)
-plt.close()       
+plt.close()     
+
+#Extract the tickers discussed.
+stocksymbol = [x for x in stock_symbol if not any(x1.isdigit() for x1 in x)]
+
+#Select uppercase words.
+stockfinal=[]
+for symbol in stocksymbol:
+    if symbol.isupper():
+        stockfinal.append(symbol)
+
+#Remove cashtag and other non-alphabetic characters.
+stocks=[]
+for i in stockfinal:
+    i=''.join(filter(str.isalpha, i))
+    stocks.append(i)
+
+#Remove false tickers   
+trolls=['AMTD','CUM']
+for troll in trolls:
+    while troll in stocks: 
+        stocks.remove(troll)
+        
+#Remove duplicates.
+res = []
+for i in stocks:
+    if i not in res:
+        res.append(i)
+        
+#selectbox
+st.selectbox('Pick a stock', res)
