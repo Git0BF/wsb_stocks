@@ -12,14 +12,14 @@ reddit = praw.Reddit(client_id=st.secrets["client_id"], client_secret=st.secrets
 
 #List of text
 wordsc=[]
-substop= reddit.subreddit('wallstreetbets').hot(limit=150)
+substop= reddit.subreddit('wallstreetbets').hot(limit=200)
 for sub in substop:
     text=sub.selftext
     text_wds=text.split()
     wordsc.append(text_wds)
 
 wordsct=[]
-substop= reddit.subreddit('wallstreetbets').hot(limit=150)
+substop= reddit.subreddit('wallstreetbets').hot(limit=200)
 for sub in substop:
     title=sub.title
     title_wds=title.split()
