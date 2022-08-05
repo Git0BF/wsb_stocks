@@ -117,7 +117,7 @@ st.plotly_chart(fige)
 #Display news
 st.write("Recent news")
 df2 = pd.DataFrame(fin.news)
-df2.drop(['uuid', 'thumbnail'], axis=1)
+df2=df2.drop(['uuid', 'thumbnail'], axis=1)
 st.dataframe(df2)
 
 st.stop()
