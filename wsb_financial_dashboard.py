@@ -98,7 +98,7 @@ data = yf.download(ticker, period='max',interval = '1d', rounding= True)
 
 fig = go.Figure()
 fig.add_trace(go.Candlestick())
-fig.add_trace(go.Candlestick(x=data.index,open = data['Open'], high=data['High'], low=data['Low'], close=data['Close'], name = 'market data'))
+fig.add_trace(go.Candlestick(x=data.index,open = data['Open'], high=data['High'], low=data['Low'], close=data['Close'], name = 'Market data'))
 fig.update_layout(title = 'Share price', yaxis_title = 'Stock Price (USD)')
                   
 fig.update_xaxes(rangeslider_visible=True,rangeselector=dict(buttons=list([dict(step='all')])))
@@ -112,7 +112,12 @@ fin = yf.Ticker(ticker)
 df1 = pd.DataFrame(fin.quarterly_earnings)
 
 fige = px.bar(df1, x=df1.index, y=df1.columns, barmode='group')
-
 st.plotly_chart(fige)
+
+#Display news
+st.write("Recent news")
+df2 = pd.DataFrame(fin.news)
+df2.drop(['uuid', 'thumbnail'], axis=1)
+st.dataframe(df2)
 
 st.stop()
