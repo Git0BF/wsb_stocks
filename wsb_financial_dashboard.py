@@ -73,7 +73,7 @@ for i in stockfinal:
     stocks.append(i)
 
 #Remove false tickers   
-trolls=['AMTD','CUM','CGX','APE','ASS','GMEAMCBBBY']
+trolls=['AMTD','CUM','CGX','APE','ASS','GMEAMCBBBY','B']
 for troll in trolls:
     while troll in stocks: 
         stocks.remove(troll)
