@@ -7,7 +7,7 @@ import yfinance as yf
 import plotly.express as px
 import plotly.graph_objs as go
 
-st.title("Hot topics on r/wallstreetbets and trending securities")
+st.title("Hot topics and trending securities on r/wallstreetbets")
 reddit = praw.Reddit(client_id=st.secrets["client_id"], client_secret=st.secrets["client_secret"], user_agent="sentiment")
 
 #List of text
@@ -91,7 +91,7 @@ st.plotly_chart(figt)
 
 #selectbox
 st.subheader("Select a ticker :") 
-ticker=st.selectbox('Pick a trending stock', res)
+ticker=st.selectbox('Trending now', res)
 ticker= str(ticker)
 
 data = yf.download(ticker, period='max',interval = '1d', rounding= True)
