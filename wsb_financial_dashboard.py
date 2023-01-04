@@ -109,7 +109,7 @@ st.plotly_chart(fig)
 
 st.write("Earnings & Revenue")
 fin = yf.Ticker(ticker)
-df1 = pd.DataFrame(fin.quarterly_earnings)
+df1 = pd.DataFrame(fin.earnings)
 
 fige = px.bar(df1, x=df1.index, y=df1.columns, barmode='group')
 st.plotly_chart(fige)
